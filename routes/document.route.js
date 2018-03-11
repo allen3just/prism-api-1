@@ -133,7 +133,7 @@ router.route('/document/:document_id/comment/:comment_id')
         'creationDate': Date.now(),
         'author': req.user.excludeFields(),
         'revision': req.body.revision,
-        'originalFilename': req.body.originalFilename
+        'originalFilename': req.body.originalFilename,
       });
       document.save().then(function(){
         winston.info(`Created comment with id ${req.params.comment_id}.`);

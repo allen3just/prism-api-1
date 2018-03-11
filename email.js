@@ -23,12 +23,16 @@ nodemailer.createTestAccount((err, account) => {
         viewPath: 'templates',
         extName: '.hbs'
     }));
-
+    
+    const memberArray = ['Justin', 'Andrew', 'Ben'];
     let message = {
         from: 'allen3just@yahoo.com',
         to: 'example@example.com',
         subject: 'Notification email',
-        template: 'notification'
+        template: 'document_deadline_notification',
+        context: {
+          Member: memberArray
+        }
     };
 
     transporter.sendMail(message, (err, info) => {
